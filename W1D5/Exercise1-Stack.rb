@@ -19,6 +19,6 @@ class Stack
 end
 
 if $PROGRAM_NAME == __FILE__
-new_stack=Stack.new
+new_stack = Stack.new
 
 end

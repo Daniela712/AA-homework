@@ -1,4 +1,5 @@
 class Queue
+
   def initialize
     @queue
   end
@@ -17,6 +18,6 @@ class Queue
   end
 end
 
-if $PROGRAM_NAME ==__FILE__
+if $PROGRAM_NAME == __FILE__
 new_queue = Queue.new
 end
