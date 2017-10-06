@@ -1,4 +1,5 @@
 class Stack
+
   def initialize
     @stack = []
   end
@@ -15,4 +16,9 @@ class Stack
   def show
     @stack.dup
   end
+end
+
+if $PROGRAM_NAME == __FILE__
+new_stack=Stack.new
+
 end
