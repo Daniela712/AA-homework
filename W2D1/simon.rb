@@ -10,7 +10,7 @@ class Simon
   end
 
   def play
-    unless @game_over
+    until @game_over
       take_turn
     end
       game_over_message
@@ -22,31 +22,38 @@ class Simon
     require_sequence
     unless @game_over
       round_success_message
-    @sequence_length += 1
-     end
+      @sequence_length += 1
+    end
   end
 
   def show_sequence
     add_random_color
-
+    @seq.each do |color|
+      puts color
+      sleep 0.80
+      system ('clear')
+    end
   end
 
   def require_sequence
     puts "Repeat the sequence of colors by adding each color one by one "
-    guess_color = gets.comp
-      @seq.each do |color|
-        if color != guess_color
-          @game_over = true
-        end
+    guess_color = gets.chomp
+    @seq.each do |color|
+      if color != guess_color
+        @game_over = true
+      break
       end
+    end
   end
 
   def add_random_color
-    @seq << COLORS.shuffle.first
+    until @seq.length == 4
+      @seq << COLORS.shuffle.first
+    end
   end
 
   def round_success_message
-     puts "The round was successful. Lets try another round"
+    puts "The round was successful. Lets try another round"
   end
 
   def game_over_message
