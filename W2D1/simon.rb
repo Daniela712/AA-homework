@@ -28,10 +28,17 @@ class Simon
 
   def show_sequence
     add_random_color
+
   end
 
   def require_sequence
-
+    puts "Repeat the sequence of colors by adding each color one by one "
+    guess_color = gets.comp
+      @seq.each do |color|
+        if color != guess_color
+          @game_over = true
+        end
+      end
   end
 
   def add_random_color
@@ -39,7 +46,7 @@ class Simon
   end
 
   def round_success_message
-    puts "The round was successful. Lets try another round"
+     puts "The round was successful. Lets try another round"
   end
 
   def game_over_message
