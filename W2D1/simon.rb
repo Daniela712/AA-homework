@@ -10,8 +10,12 @@ class Simon
   end
 
   def play
-
-  end
+    unless @game_over
+      take_turn
+    end
+      game_over_message
+      reset_game
+   end
 
   def take_turn
     show_sequence
@@ -19,6 +23,7 @@ class Simon
     unless @game_over
       round_success_message
     @sequence_length += 1
+     end
   end
 
   def show_sequence
