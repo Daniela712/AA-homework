@@ -17,8 +17,23 @@ class Board
   end
 
   def make_move(start_pos, current_player_name)
-  end
 
+    stones = @cups[start_pos]
+    @cups[start_pos] = []
+
+    cup = start_pos
+    until stones.empty?
+    cup +=1
+    cup = 0 if cup > 13
+    if cup == 6
+      @cups[6] << stones.pop if current_player_name == @name1
+    elsif cup == 13
+      @cups[13] << stones.pop if current_player_name == @name2
+    else
+      @cups[cup] << stones.pop
+    end
+  end
+end
   def next_turn(ending_cup_idx)
     # helper method to determine what #make_move returns
   end
