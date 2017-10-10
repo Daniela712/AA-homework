@@ -33,21 +33,28 @@ class Board
 
     cup_pos = start_pos
     until stones.empty?
-    cup_pos +=1
-    cup_pos = 0 if cup_pos > 13
-    if cup_pos == 6
-      @cups[6] << stones.pop if current_player_name == @name1
-    elsif cup_pos == 13
-      @cups[13] << stones.pop if current_player_name == @name2
-    else
-      @cups[cup_pos] << stones.pop
+      cup_pos +=1
+      cup_pos = 0 if cup_pos > 13
+        if cup_pos == 6
+          @cups[6] << stones.pop if current_player_name == @name1
+        elsif cup_pos == 13
+          @cups[13] << stones.pop if current_player_name == @name2
+        else
+          @cups[cup_pos] << stones.pop
+        end
     end
-  end
-end
+   end
 
 
   def next_turn(ending_cup_idx)
+    if ending_cup_idx == 6 || ending_cup_idx == 13
+      :prompt
+    elsif @cups[ending_cup_idx].length  == 1
+      :switch
+    else
+    ending_cup_idx
     # helper method to determine what #make_move returns
+    end
   end
 
   def render
