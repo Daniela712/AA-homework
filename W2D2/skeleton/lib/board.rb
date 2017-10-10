@@ -9,8 +9,17 @@ class Board
   end
 
   def place_stones
-    # helper method to #initialize every non-store cup with four stones each
+    @cups.each_with_index do |cup, i|
+      next if i == 6 || i == 13
+      4.times do
+        cup << :stone
+      end
+    end
   end
+
+
+    # helper method to #initialize every non-store cup with four stones each
+
 
   def valid_move?(start_pos)
     raise "Invalid starting cup" if @cups[start_pos].empty?
