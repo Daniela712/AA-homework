@@ -5,6 +5,7 @@ class Board
     @name1 = name1
     @name2 = name2
     @cups = Array.new(14) {Array.new}
+    place_stones
   end
 
   def place_stones
@@ -54,5 +55,16 @@ end
   end
 
   def winner
+    player1 = @cups[6].length
+    player2 = @cups[13].length
+      if player1 == player2
+        :draw
+      else
+        if player1 > player2
+          return @name1
+        else
+          return @name2
+        end
+      end
   end
 end
