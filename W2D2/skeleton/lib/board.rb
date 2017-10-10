@@ -21,19 +21,21 @@ class Board
     stones = @cups[start_pos]
     @cups[start_pos] = []
 
-    cup = start_pos
+    cup_pos = start_pos
     until stones.empty?
-    cup +=1
-    cup = 0 if cup > 13
-    if cup == 6
+    cup_pos +=1
+    cup_pos = 0 if cup_pos > 13
+    if cup_pos == 6
       @cups[6] << stones.pop if current_player_name == @name1
-    elsif cup == 13
+    elsif cup_pos == 13
       @cups[13] << stones.pop if current_player_name == @name2
     else
-      @cups[cup] << stones.pop
+      @cups[cup_pos] << stones.pop
     end
   end
 end
+
+
   def next_turn(ending_cup_idx)
     # helper method to determine what #make_move returns
   end
@@ -47,6 +49,8 @@ end
   end
 
   def one_side_empty?
+    @cups[1..6].all? { |cup| cup.empty? } ||
+    @cups[7..12].all? { |cup| cup.empty?}
   end
 
   def winner
