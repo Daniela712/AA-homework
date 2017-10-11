@@ -7,41 +7,60 @@ Instructions: implement all of the pending specs (the `it` statements without bl
 
 describe Dessert do
   let(:chef) { double("chef") }
-  let(:cake) { Dessert.new("Cake" )}
+  let(:cake) { Dessert.new("Cake",10, chef)}
 
   describe "#initialize" do
     it "sets a type" do
     expect(cake.type).to eq("cake")
-    end
+  end
+
     it "sets a quantity" do
       expect(cake.quantity).to. eq(10)
     end
 
 
-    it "starts ingredients as an empty array"
+    it "starts ingredients as an empty array" do
+      expect(cake.ingredients).to be_empty
+    end
 
-    it "raises an argument error when given a non-integer quantity"
+    it "raises an argument error when given a non-integer quantity" do
+      expect (Dessert.new("cake", 10, chef)).to raise_error(ArgumentError)
   end
+end
 
   describe "#add_ingredient" do
-    it "adds an ingredient to the ingredients array"
-  end
+    it "adds an ingredient to the ingredients array" do
+      cake.add_ingredient("frosting")
+      expect(cake.add_ingredient).to include("frosting")
+
+end
+end
 
   describe "#mix!" do
-    it "shuffles the ingredient array"
+    it "shuffles the ingredient array" do
+    ingredients = ["flour", "egg", "milk", "butter", "frosting"]
+
+
+     ingredients.each do |ing|
+       cake.add_ingredient(ing)
   end
 
   describe "#eat" do
-    it "subtracts an amount from the quantity"
+    it "subtracts an amount from the quantity" do
+    end
+    end
 
-    it "raises an error if the amount is greater than the quantity"
+    it "raises an error if the amount is greater than the quantity" do
   end
 
   describe "#serve" do
-    it "contains the titleized version of the chef's name"
+    it "contains the titleized version of the chef's name" do
   end
+end
+
 
   describe "#make_more" do
-    it "calls bake on the dessert's chef with the dessert passed in"
-  end
+    it "calls bake on the dessert's chef with the dessert passed in" do
+    end
+end
 end
