@@ -46,3 +46,10 @@ def clever_octopus(fishes)
   end
   big
 end
+
+
+def slow_dance(dir, tiles_arr)
+  tiles_arr.each_with_index do |el, i|
+    return i if tile == dir
+  end
+end
