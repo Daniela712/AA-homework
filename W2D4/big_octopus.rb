@@ -19,7 +19,7 @@ class Array
     Array.merge(left, right, &prc)
   end
 
-  def merge(left, right, &prc)
+  def self.merge(left, right, &prc)
     arr=[]
     until left.empty? || right.empty?
       case prc.call(left.first, right.first)
@@ -35,4 +35,14 @@ class Array
     arr + left + right
     arr
   end
+end
+
+def clever_octopus(fishes)
+  big = fish[0]
+  fishes.each do |fish|
+    if fish.length > big.length
+      big = fish
+    end
+  end
+  big
 end
