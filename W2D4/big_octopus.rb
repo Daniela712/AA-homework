@@ -53,3 +53,8 @@ def slow_dance(dir, tiles_arr)
     return i if tile == dir
   end
 end
+
+def fast_dance(dir, tiles_hash)
+  tiles_hash[dir]
+end
+  
